@@ -3,7 +3,7 @@ ORIG_PN="pango"
 inherit cross gnome2
 
 NAME="mingw64-i686-pango1.0"
-VERSION=1.32.5
+VERSION=1.34.1
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="GNOME text rendering library for Win32 toolchain"
@@ -12,6 +12,8 @@ contains msvcrt-linked binaries (aka 'mingw').  It is for use with the
 mingw64-i686-gcc cross compiler, and installs into the
 /usr/i686-pc-mingw32/sys-root/mingw/{lib,include} directories."
 HOMEPAGE="http://www.pango.org/"
+
+PATCH_URI="1.34.1-enable-static.patch"
 
 DIFF_EXCLUDES="pango-view.1.in"
 
@@ -23,4 +25,3 @@ src_install() {
 	rm -f ${D}${CROSS_BINDIR}/pango-view.exe
 	rm -fr ${D}${CROSS_DATADIR}/man/
 }
-
